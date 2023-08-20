@@ -38,9 +38,7 @@ public class PessoaFisicaRepo {
     }
 
     public class  PessoaJuridicaRepo{
-         try(){
 
-        }catch
     }
 }
 
