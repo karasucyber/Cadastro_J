@@ -38,7 +38,6 @@ public class PessoaFisicaRepo {
     }
 
     public class  PessoaJuridicaRepo{
-
     }
 }
 
