@@ -2,29 +2,50 @@ package model;
 
 import java.io.Serializable;
 
-public class Pessoa implements Serializable {
+public abstract class Pessoa implements Serializable {
     int idade;
     String nome;
-
-    protected  String identificador;
-
     int id;
 
-    public Pessoa(int idade, String name, int id,String identificador){
+    public Pessoa(int idade, String nome, int id){
         this.idade = idade;
         this.nome = nome;
         this.id = id;
-        this.identificador = identificador;
 
     }
 
     public String toString (){
-        return "Objeto:" + "\n\t- Classe: " + getClass().getName() + "\n\t- Hash: " + Integer.toHexString(hashCode()) + "\n\t- Nome: " + nome + "\n\t- Identificador: " + identificador;
+        return "Objeto:" + "\n\t- Classe: " + getClass().getName() + "\n\t- Hash: " + Integer.toHexString(hashCode()) + "\n\t- Nome: " + nome ;
     }
 
-    public void atualizarNome(){
+    public int getIdade(){
+        return idade;
+    }
+
+    public void setIdade(int Idade){
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+
+
+
+    public final void atualizarNome(){
      return ;
 
+
     }
+
 
 }

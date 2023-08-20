@@ -1,16 +1,14 @@
-import model.Pessoa;
-import model.PessoaFIsica;
+import model.*;
 
 public class Main {
-private static Pessoa grupo[];
+
     public static void main(String[] args) {
-        grupo = new Pessoa [2];
+        PessoaJuridicaRepo PJ = new PessoaJuridicaRepo();
+        PessoaFisicaRepo PF = new PessoaFisicaRepo();
+        PessoaFIsica F = new PessoaFIsica(10,"kaua",10,"4076648");
+        PessoaJuridica J = new PessoaJuridica(10,"Kaua",10,"40400");
+        PJ.inserirF(J);
+        System.out.println(PJ.obterTodos().toString());
 
-        grupo[0] = new PessoaFIsica(10, "Kaua",10,"marques");
-        grupo[1] = new Pessoa(10,"kaua",10,"marques");
-
-        for(int i = 0; i <= 1; i++){
-            System.out.println(grupo[i].toString());
-        }
     }
 }
