@@ -1,8 +1,9 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.io.*;
+
 public class PessoaFisicaRepo {
      /* Lista privada para armazenar pessoas */
      private List<PessoaFIsica> pessoas;
@@ -37,7 +38,23 @@ public class PessoaFisicaRepo {
          return new ArrayList<>(pessoas);
     }
 
-    public class  PessoaJuridicaRepo{
+    public void persistir(String nomeArquivo) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            outputStream.writeObject(pessoas);
+            System.out.println("Dados persistidos no arquivo: " + nomeArquivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void recuperar(String nomeArquivo) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            pessoas = (List<PessoaFIsica>) inputStream.readObject();
+            System.out.println("Dados de Pessoa Física recuperados do arquivo: " + nomeArquivo);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
 

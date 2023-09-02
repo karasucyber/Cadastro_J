@@ -9,8 +9,6 @@ public class PessoaFIsica extends Pessoa{
 
     }
 
-
-
     public String getCpf() {
         return cpf;
     }
@@ -20,17 +18,11 @@ public class PessoaFIsica extends Pessoa{
 
 
     @Override
-    public String toString(){
-        return cpf ;
-    }
-    public void exibir(){
-        System.out.println("Pessoa Fisica");
-        System.out.println("ID " +"" + getId()   );
-        System.out.println("nome " + "" + getNome());
-        System.out.println("idade " + "" +getIdade());
-        System.out.println("CPF " + "" + getCpf());
-        System.out.println("-----------------------------");
-    }
+        public String toString() {
+            return  "id: " + id + "nome :" + nome + "idade: " + idade + "CNPJ: " + cpf ;
+        }
+
+
 
 
 
