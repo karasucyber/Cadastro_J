@@ -1,7 +1,7 @@
 package model;
-
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.ArrayList;
 import java.io.*;
 
 public class PessoaFisicaRepo {
@@ -10,9 +10,10 @@ public class PessoaFisicaRepo {
 
      public PessoaFisicaRepo(){
          pessoas = new ArrayList<>();
+
      }
 
-     public void inserir(PessoaFIsica pessoa){
+    public void inserir(PessoaFIsica pessoa){
          pessoas.add(pessoa);
      }
 
@@ -29,13 +30,13 @@ public class PessoaFisicaRepo {
     public PessoaFIsica obter(int id){
              for(PessoaFIsica pessoa : pessoas){
              if(pessoa.getId() == id){
-                 return  pessoa;
+                 return pessoa;
              }
          }
         return null;
     }
-    public List<PessoaFIsica> obterTodos(){
-         return new ArrayList<>(pessoas);
+    public List<PessoaFIsica> obterTodos() {
+        return Collections.unmodifiableList(pessoas);
     }
 
     public void persistir(String nomeArquivo) {
@@ -56,6 +57,14 @@ public class PessoaFisicaRepo {
             e.printStackTrace();
         }
     }
+
+
+    public void imprimirTodos() {
+        for (PessoaFIsica pessoa : pessoas) {
+            System.out.println(pessoa); // Supondo que sua classe PessoaFisica tenha um método toString adequado
+        }
+    }
+
 }
 
 /*  indexOf é usado para encontrar os índices das strings  */

@@ -18,11 +18,14 @@ public class PessoaFIsica extends Pessoa{
 
 
     @Override
-        public String toString() {
-            return  "id: " + id + "nome :" + nome + "idade: " + idade + "CNPJ: " + cpf ;
-        }
-
-
+    public String toString() {
+        return "[\n" +
+                "  id = " + id + "\n" +
+                "  Nome = " + nome + "\n" +
+                "  Cnpj = " + cpf + "\n" +
+                "  Idade = " + idade + "\n" +
+                "]";
+    }
 
 
 

@@ -8,7 +8,7 @@ public class PessoaJuridicaRepo {
 
     public PessoaJuridicaRepo(){ jurica = new ArrayList<>();}
 
-    public void inserirF(PessoaJuridica pessoa){ jurica.add(pessoa);}
+    public void inserir(PessoaJuridica pessoa){ jurica.add(pessoa);}
 
     public void alterar(PessoaJuridica pessoaAntiga, PessoaJuridica pessoaNova){
         int index = jurica.indexOf(pessoaAntiga);
@@ -29,6 +29,7 @@ public class PessoaJuridicaRepo {
         return new ArrayList<>(jurica);
     }
 
+
     public void persistir(String nomeArquivo) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
             outputStream.writeObject(jurica);
@@ -44,6 +45,12 @@ public class PessoaJuridicaRepo {
             System.out.println("Dados de Pessoa Jurídica recuperados do arquivo: " + nomeArquivo);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void imprimirTodos(){
+        for(PessoaJuridica pessoa : jurica){
+            System.out.println(pessoa);
         }
     }
 
